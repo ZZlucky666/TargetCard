@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="QPf-H9-BNX" customClass="ShareCustomView">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="174"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cks-3a-j0z">
+                    <rect key="frame" x="84" y="57" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="5Z7-rK-Anf"/>
+                        <constraint firstAttribute="width" constant="60" id="aEb-ga-gde"/>
+                    </constraints>
+                    <state key="normal" image="WechatTimeline"/>
+                    <state key="highlighted" image="WechatTimeline"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MG-O5-TIp">
+                    <rect key="frame" x="183" y="57" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="8wx-cH-cnf"/>
+                        <constraint firstAttribute="width" constant="60" id="gYJ-Hw-3f8"/>
+                    </constraints>
+                    <state key="normal" image="WechatSession"/>
+                    <state key="highlighted" image="WechatSession"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4D-yd-tWJ">
+                    <rect key="frame" x="282" y="57" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="5FG-KE-yti"/>
+                        <constraint firstAttribute="width" constant="60" id="Te0-MB-bnd"/>
+                    </constraints>
+                    <state key="normal" image="QQImage"/>
+                    <state key="highlighted" image="QQImage"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cks-3a-j0z" firstAttribute="centerY" secondItem="QPf-H9-BNX" secondAttribute="centerY" id="Iq2-Eb-cng"/>
+                <constraint firstItem="cks-3a-j0z" firstAttribute="centerY" secondItem="6MG-O5-TIp" secondAttribute="centerY" id="cZk-jd-6yR"/>
+                <constraint firstItem="6MG-O5-TIp" firstAttribute="leading" secondItem="cks-3a-j0z" secondAttribute="trailing" constant="35" id="eKi-bh-DW2"/>
+                <constraint firstItem="6MG-O5-TIp" firstAttribute="centerX" secondItem="QPf-H9-BNX" secondAttribute="centerX" id="gnH-xG-A8t"/>
+                <constraint firstItem="d4D-yd-tWJ" firstAttribute="centerY" secondItem="6MG-O5-TIp" secondAttribute="centerY" id="k0l-G0-r3U"/>
+                <constraint firstItem="d4D-yd-tWJ" firstAttribute="leading" secondItem="6MG-O5-TIp" secondAttribute="trailing" constant="39" id="m6r-hI-Qem"/>
+                <constraint firstItem="6MG-O5-TIp" firstAttribute="leading" secondItem="cks-3a-j0z" secondAttribute="trailing" constant="39" id="swI-0u-cnd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="eKi-bh-DW2"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="qqBtn" destination="d4D-yd-tWJ" id="Kat-sF-7Co"/>
+                <outlet property="timeLineBtn" destination="6MG-O5-TIp" id="Avv-mX-Irj"/>
+                <outlet property="wechatBtn" destination="cks-3a-j0z" id="Y6N-YS-zDX"/>
+            </connections>
+            <point key="canvasLocation" x="400.5" y="584"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="QQImage" width="112" height="112"/>
+        <image name="WechatSession" width="112" height="112"/>
+        <image name="WechatTimeline" width="112" height="112"/>
+    </resources>
+</document>
