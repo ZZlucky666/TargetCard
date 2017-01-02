@@ -42,7 +42,7 @@
     
     CGFloat pointY;
     if (SCREEN_WIDTH > 320) {
-        pointY = SCREEN_HEIGHT - 100;
+        pointY = 380;
     } else {
         pointY = SCREEN_HEIGHT - 50;
     }
@@ -60,7 +60,7 @@
     [btn setTitle:@"去除广告" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     if (SCREEN_WIDTH > 320) {
-        btn.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT - 150);
+        btn.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT - 170);
     } else {
         btn.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT - 80);
     }
@@ -89,7 +89,7 @@
             //5.创建交易对象并添加到交易队列
             [[SKPaymentQueue defaultQueue]addPayment:payment];
         } else {
-            [[MyAlertCenter defaultCenter]postAlertWithMessage:@"支付失败，请稍后重试"];
+//            [[MyAlertCenter defaultCenter]postAlertWithMessage:@"支付失败，请稍后重试"];
         }
     }
 }
