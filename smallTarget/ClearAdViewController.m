@@ -66,6 +66,20 @@
     }
     [btn addTarget:self action:@selector(didClickClearBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    UIButton *resumeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    resumeBtn.frame = CGRectMake(0, 0, 70, 20);
+    resumeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [resumeBtn setTitleColor:UIColorFromRGB(0x121B26) forState:UIControlStateNormal];
+    [resumeBtn setTitle:@"已购买？" forState:UIControlStateNormal];
+    if (SCREEN_WIDTH > 320) {
+        resumeBtn.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT - 170 + 50);
+    } else {
+        resumeBtn.center = CGPointMake(SCREEN_WIDTH - 40, SCREEN_HEIGHT - 80);
+    }
+    [resumeBtn addTarget:self action:@selector(didClickResumeBtn) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:resumeBtn];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -81,22 +95,33 @@
     [alert show];
 }
 
+- (void)didClickResumeBtn {
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"已购买？" message:@"已购买过清除广告的服务，现在恢复？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag = 100;
+    [alert show];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        if (self.validProduct) {
-            //小票 创建一个交易
-            SKPayment *payment = [SKPayment paymentWithProduct:self.validProduct];
-            //5.创建交易对象并添加到交易队列
-            [[SKPaymentQueue defaultQueue]addPayment:payment];
-        } else {
-//            [[MyAlertCenter defaultCenter]postAlertWithMessage:@"支付失败，请稍后重试"];
+    if (alertView.tag == 100) {
+        if (buttonIndex == 1) {
+            if (self.validProduct) {
+                [[SKPaymentQueue defaultQueue]restoreCompletedTransactions];
+            }
+        }
+    } else {
+        if (buttonIndex == 1) {
+            if (self.validProduct) {
+                //小票 创建一个交易
+                SKPayment *payment = [SKPayment paymentWithProduct:self.validProduct];
+                //5.创建交易对象并添加到交易队列
+                [[SKPaymentQueue defaultQueue]addPayment:payment];
+            }
         }
     }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)fetchAvailableProducts {
@@ -157,7 +182,10 @@
             [[SKPaymentQueue defaultQueue]finishTransaction:t];
             break;
         } else if (t.transactionState == SKPaymentTransactionStateRestored) {//已经购买过该商品
-            [[MyAlertCenter defaultCenter]postAlertWithMessage:@"您已支付，无需重复支付"];
+            NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+            [userDef setBool:YES forKey:[NSString stringWithFormat:@"clearAd"]];
+            [userDef synchronize];
+            [[MyAlertCenter defaultCenter]postAlertWithMessage:@"已为您清除广告"];
             //结束交易完成
             [[SKPaymentQueue defaultQueue]finishTransaction:t];
             break;
