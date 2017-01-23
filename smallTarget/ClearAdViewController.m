@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Jack Zeng. All rights reserved.
 //
 
-#define kProductID @"MuBiaoKaPian"
+#define kProductID @"ClearAd"
 #import "ClearAdViewController.h"
 #import <StoreKit/StoreKit.h>
 #import "MyAlertCenter.h"
@@ -44,7 +44,7 @@
     if (SCREEN_WIDTH > 320) {
         pointY = 380;
     } else {
-        pointY = SCREEN_HEIGHT - 50;
+        pointY = SCREEN_HEIGHT - 80 - 60;
     }
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, pointY, SCREEN_WIDTH, 30)];
     label.text = @"仅需1元，去除App内置广告";
@@ -53,15 +53,17 @@
     [self.view addSubview:label];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 180, 44);
+    
     btn.backgroundColor = UIColorFromRGB(0x1E95FF);
     btn.layer.cornerRadius = 5;
     btn.clipsToBounds = YES;
     [btn setTitle:@"去除广告" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     if (SCREEN_WIDTH > 320) {
+        btn.frame = CGRectMake(0, 0, 180, 44);
         btn.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT - 170);
     } else {
+        btn.frame = CGRectMake(0, 0, 160, 44);
         btn.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT - 80);
     }
     [btn addTarget:self action:@selector(didClickClearBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -71,11 +73,11 @@
     resumeBtn.frame = CGRectMake(0, 0, 70, 20);
     resumeBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [resumeBtn setTitleColor:UIColorFromRGB(0x121B26) forState:UIControlStateNormal];
-    [resumeBtn setTitle:@"已购买？" forState:UIControlStateNormal];
+    [resumeBtn setTitle:@"恢复购买?" forState:UIControlStateNormal];
     if (SCREEN_WIDTH > 320) {
         resumeBtn.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT - 170 + 50);
     } else {
-        resumeBtn.center = CGPointMake(SCREEN_WIDTH - 40, SCREEN_HEIGHT - 80);
+        resumeBtn.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT - 40);
     }
     [resumeBtn addTarget:self action:@selector(didClickResumeBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:resumeBtn];
@@ -96,7 +98,7 @@
 }
 
 - (void)didClickResumeBtn {
-    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"已购买？" message:@"已购买过清除广告的服务，现在恢复？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"恢复购买？" message:@"已购买过清除广告的服务，现在恢复？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alert.tag = 100;
     [alert show];
 }
@@ -174,7 +176,7 @@
     //7.如果交易状态购买成功  提供特殊服务
     for (SKPaymentTransaction *t in transactions) {
         if (t.transactionState == SKPaymentTransactionStatePurchased) {//交易完成
-            [[MyAlertCenter defaultCenter]postAlertWithMessage:@"感谢您对支持，已清除广告"];
+            [[MyAlertCenter defaultCenter]postAlertWithMessage:@"已为您清除广告"];
             NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
             [userDef setBool:YES forKey:[NSString stringWithFormat:@"clearAd"]];
             [userDef synchronize];

@@ -210,7 +210,7 @@
         AboutUsViewController *vc = [[AboutUsViewController alloc]init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if (indexPath.row == 2) {
-        static NSString * const reviewURL = @"http//itunes.apple.com/us/app/id1018221712";
+        static NSString * const reviewURL = @"http://itunes.apple.com/us/app/id1179254763";
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:reviewURL]];
     }
 }

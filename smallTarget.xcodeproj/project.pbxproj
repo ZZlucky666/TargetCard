@@ -13,6 +13,7 @@
 		800FEA0A1DC4CFF500941780 /* CountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FEA091DC4CFF500941780 /* CountDownView.m */; };
 		800FEA0E1DC62A0A00941780 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FEA0D1DC62A0A00941780 /* AddViewController.m */; };
 		800FEA111DC62DC300941780 /* TargetEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 800FEA101DC62DC300941780 /* TargetEditView.m */; };
+		B91FE23B1E364739007BBBA3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91FE23A1E364739007BBBA3 /* StoreKit.framework */; };
 		B921DB411DC35582000CEBAC /* ZTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B921DB401DC35582000CEBAC /* ZTNavigationController.m */; };
 		B921DB481DC35884000CEBAC /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B921DB451DC35884000CEBAC /* UIBarButtonItem+Extension.m */; };
 		B921DB491DC35884000CEBAC /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = B921DB471DC35884000CEBAC /* UIView+Extension.m */; };
@@ -70,7 +71,6 @@
 		B98F63451D8045F7002DCB02 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98F63441D8045F7002DCB02 /* UserProfileViewController.m */; };
 		B9B8DA731DD211A0007871C6 /* ZTDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B8DA721DD211A0007871C6 /* ZTDBManager.m */; };
 		B9B8DB131DD8AF87007871C6 /* FristTargetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9B8DB111DD8AF87007871C6 /* FristTargetModel.xcdatamodeld */; };
-		B9C5AF4F1E044EAD006616AC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B90AD2161DFEE16000042F06 /* StoreKit.framework */; };
 		B9CC9B991DF70CF90094DCE1 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CC9B981DF70CF90094DCE1 /* GoogleMobileAds.framework */; };
 		D718254BB00D7548F4477C31 /* libPods-smallTarget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B78C7E3D33F9FBC44A31F493 /* libPods-smallTarget.a */; };
 /* End PBXBuildFile section */
@@ -107,7 +107,7 @@
 		800FEA0F1DC62DC300941780 /* TargetEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetEditView.h; sourceTree = "<group>"; };
 		800FEA101DC62DC300941780 /* TargetEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetEditView.m; sourceTree = "<group>"; };
 		B78C7E3D33F9FBC44A31F493 /* libPods-smallTarget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-smallTarget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B90AD2161DFEE16000042F06 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StoreKit.framework; sourceTree = "<group>"; };
+		B91FE23A1E364739007BBBA3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StoreKit.framework; sourceTree = "<group>"; };
 		B921DB3F1DC35582000CEBAC /* ZTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTNavigationController.h; sourceTree = "<group>"; };
 		B921DB401DC35582000CEBAC /* ZTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTNavigationController.m; sourceTree = "<group>"; };
 		B921DB421DC35601000CEBAC /* SmallTarget-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmallTarget-Prefix.pch"; sourceTree = "<group>"; };
@@ -232,10 +232,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9C5AF4F1E044EAD006616AC /* StoreKit.framework in Frameworks */,
 				B9CC9B991DF70CF90094DCE1 /* GoogleMobileAds.framework in Frameworks */,
 				B980A2B11DE329410024680F /* libz.tbd in Frameworks */,
 				B980A2AF1DE329360024680F /* libc++.tbd in Frameworks */,
+				B91FE23B1E364739007BBBA3 /* StoreKit.framework in Frameworks */,
 				B980A2A91DE328C40024680F /* libsqlite3.tbd in Frameworks */,
 				B980A2AD1DE3290C0024680F /* CoreTelephony.framework in Frameworks */,
 				B980A2AB1DE328FD0024680F /* SystemConfiguration.framework in Frameworks */,
@@ -567,7 +567,7 @@
 			children = (
 				B98F63431D8045F7002DCB02 /* UserProfileViewController.h */,
 				B98F63441D8045F7002DCB02 /* UserProfileViewController.m */,
-				B90AD2161DFEE16000042F06 /* StoreKit.framework */,
+				B91FE23A1E364739007BBBA3 /* StoreKit.framework */,
 				B98D36B11DE1F728006084DC /* ClearAdViewController.h */,
 				B98D36B21DE1F728006084DC /* ClearAdViewController.m */,
 				B98D36B41DE1F753006084DC /* AboutUsViewController.h */,
