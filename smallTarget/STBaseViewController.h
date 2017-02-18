@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSDateFormatter *formatterDate;
 
+- (void)setStatusBarBackgroundColor:(UIColor *)color;
+
 @end

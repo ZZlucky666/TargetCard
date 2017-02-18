@@ -50,7 +50,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setStatusBarBackgroundColor:UIColorFromRGB(0xFAFAFA)];
     [self refreshDataList];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -196,11 +201,20 @@
                     [context updatedObjects];
                 }
                 
-                SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
-                secondModel.title = model.title;
-                secondModel.keyNumber = model.keyNumber;
-                secondModel.status = @"未完成";
-                secondModel.currentDate = model.deadlineTime;
+                NSEntityDescription * des2 = [NSEntityDescription entityForName:@"SecondModel" inManagedObjectContext:context];
+                NSFetchRequest * request2 = [NSFetchRequest new];
+                request2.entity = des2;
+                request2.predicate = pre;
+                NSArray * array2 = [context executeFetchRequest:request2 error:NULL];
+                for (SecondModel *model in array2) {
+                    model.status = @"未完成";
+                    [context updatedObjects];
+                }
+//                SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
+//                secondModel.title = model.title;
+//                secondModel.keyNumber = model.keyNumber;
+//                secondModel.status = @"未完成";
+//                secondModel.currentDate = model.deadlineTime;
                 [[ZTDBManager sharedManager] saveContext];
                 [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", model.keyNumber]];
                 continue;
@@ -401,11 +415,20 @@
             [context updatedObjects];
         }
         
-        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
-        secondModel.title = model.title;
-        secondModel.keyNumber = model.keyNumber;
-        secondModel.status = @"未完成";
-        secondModel.currentDate = [NSDate date];
+        NSEntityDescription * des2 = [NSEntityDescription entityForName:@"SecondModel" inManagedObjectContext:context];
+        NSFetchRequest * request2 = [NSFetchRequest new];
+        request2.entity = des2;
+        request2.predicate = pre;
+        NSArray * array2 = [context executeFetchRequest:request2 error:NULL];
+        for (SecondModel *model in array2) {
+            model.status = @"未完成";
+            [context updatedObjects];
+        }
+//        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
+//        secondModel.title = model.title;
+//        secondModel.keyNumber = model.keyNumber;
+//        secondModel.status = @"未完成";
+//        secondModel.currentDate = [NSDate date];
         [[ZTDBManager sharedManager] saveContext];
         [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", model.keyNumber]];
     }
@@ -432,12 +455,23 @@
             [context updatedObjects];
         }
         
-        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
-        secondModel.title = model.title;
-        secondModel.keyNumber = model.keyNumber;
-        secondModel.finishTime = i;
-        secondModel.status = @"进行中";
-        secondModel.currentDate = [NSDate date];
+        NSEntityDescription * des2 = [NSEntityDescription entityForName:@"SecondModel" inManagedObjectContext:context];
+        NSFetchRequest * request2 = [NSFetchRequest new];
+        request2.entity = des2;
+        request2.predicate = pre;
+        NSArray * array2 = [context executeFetchRequest:request2 error:NULL];
+        for (SecondModel *model in array2) {
+            model.finishTime = i;
+            model.status = @"进行中";
+            [context updatedObjects];
+        }
+        
+//        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
+//        secondModel.title = model.title;
+//        secondModel.keyNumber = model.keyNumber;
+//        secondModel.finishTime = i;
+//        secondModel.status = @"进行中";
+//        secondModel.currentDate = [NSDate date];
         [[ZTDBManager sharedManager] saveContext];
         
         [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", model.keyNumber]];
@@ -471,11 +505,20 @@
             [context updatedObjects];
         }
         
-        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
-        secondModel.title = model.title;
-        secondModel.keyNumber = model.keyNumber;
-        secondModel.status = @"已完成";
-        secondModel.currentDate = [NSDate date];
+        NSEntityDescription * des2 = [NSEntityDescription entityForName:@"SecondModel" inManagedObjectContext:context];
+        NSFetchRequest * request2 = [NSFetchRequest new];
+        request2.entity = des2;
+        request2.predicate = pre;
+        NSArray * array2 = [context executeFetchRequest:request2 error:NULL];
+        for (SecondModel *model in array2) {
+            model.status = @"已完成";
+            [context updatedObjects];
+        }
+//        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
+//        secondModel.title = model.title;
+//        secondModel.keyNumber = model.keyNumber;
+//        secondModel.status = @"已完成";
+//        secondModel.currentDate = [NSDate date];
         [[ZTDBManager sharedManager] saveContext];
         [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", model.keyNumber]];
     }

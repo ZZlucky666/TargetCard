@@ -13,7 +13,7 @@
 #import <UMSocialCore/UMSocialCore.h>
 @import GoogleMobileAds;
 
-#define googleADId @"ca-app-pub-3311606292245331~7002851000"
+#define googleADId @"ca-app-pub-3311606292245331/8479584202"
 #define testGoogleADId @"ca-app-pub-3940256099942544/2934735716"
 #define shareText @"你曾想为父母做顿饭，却一拖再拖；你曾想给她买一束花，但忘了又忘。一个个能为生活增添美好的小目标，却常常被埋没在徒增疲惫的世俗琐事里。这里刚好有个不错的应用，提醒你什么更重要。\n下载点击itunes.apple.com/app/id1179254763"
 
@@ -34,6 +34,11 @@
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = UIColorFromRGB(0xFAFAFA);
     [self setUpUI];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setStatusBarBackgroundColor:UIColorFromRGB(0xFAFAFA)];
 }
 
 - (void)setUpUI {
@@ -90,6 +95,8 @@
     [backView addGestureRecognizer:tapGesture];
     self.backView = backView;
     
+    [self setStatusBarBackgroundColor:[UIColor clearColor]];
+    
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ShareCustomView" owner:self options:nil];
     ShareCustomView *shareView = [nib objectAtIndex:0];
     shareView.frame = CGRectMake(0, SCREEN_HEIGHT , SCREEN_WIDTH, 200);
@@ -114,6 +121,7 @@
         self.shareView.frame = CGRectMake(0, SCREEN_HEIGHT , SCREEN_WIDTH, 200);
         self.backView.alpha = 0;
     } completion:^(BOOL finished) {
+        [self setStatusBarBackgroundColor:UIColorFromRGB(0xFAFAFA)];
         [self.shareView removeFromSuperview];
         [self.backView removeFromSuperview];
     }];

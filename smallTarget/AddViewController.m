@@ -49,6 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self setStatusBarBackgroundColor:[UIColor whiteColor]];
     self.editTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, SCREEN_HEIGHT - 20) style:UITableViewStylePlain];
     [self.view addSubview:self.editTableView];
     self.editTableView.delegate = self;

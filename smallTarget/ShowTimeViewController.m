@@ -21,8 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    NSArray *array = [[NSArray alloc] initWithObjects:@"home-5",@"home-5",@"home-5 copy",nil];
-    int r = arc4random() % 3;
+    [self setStatusBarBackgroundColor:[UIColor whiteColor]];
+    NSArray *array = [[NSArray alloc] initWithObjects:@"home-5",@"home-5 copy",nil];
+    int r = arc4random() % 2;
     NSString *str = array[r];
     UIImage *image = [UIImage imageNamed:str];
     self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, image.size.height / image.size.width * SCREEN_WIDTH)];

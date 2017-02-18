@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self setStatusBarBackgroundColor:[UIColor whiteColor]];
     [self fetchAvailableProducts];
 }
 

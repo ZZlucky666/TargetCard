@@ -16,7 +16,7 @@
 #import "TargetDetailViewController.h"
 @import GoogleMobileAds;
 
-#define googleADId @"ca-app-pub-3311606292245331~7002851000"
+#define googleADId @"ca-app-pub-3311606292245331/8479584202"
 #define testGoogleADId @"ca-app-pub-3940256099942544/2934735716"
 
 @interface TimeLineViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -46,6 +46,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reloadListView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setStatusBarBackgroundColor:UIColorFromRGB(0xFAFAFA)];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController {
@@ -88,9 +93,9 @@
     self.bannerView.adUnitID = googleADId;
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:[GADRequest request]];
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"clearAd"]) {
-        self.bannerView.hidden = YES;
-    }
+//    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"clearAd"]) {
+//        self.bannerView.hidden = YES;
+//    }
 }
 
 - (void)reloadListView {

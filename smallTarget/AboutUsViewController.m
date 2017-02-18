@@ -21,6 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self setStatusBarBackgroundColor:[UIColor whiteColor]];
+}
+
+//设置状态栏颜色
+- (void)setStatusBarBackgroundColor:(UIColor *)color {
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = color;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,8 +93,8 @@
 
 - (void)didClickConnectBtn {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = @"zengtian1211@163.com";
-    [[MyAlertCenter defaultCenter]postAlertWithMessage:@"已复制邮箱地址"];
+    pasteboard.string = @"zengtianshiyue";
+    [[MyAlertCenter defaultCenter]postAlertWithMessage:@"已复制微信号"];
 }
 
 - (void)didReceiveMemoryWarning {

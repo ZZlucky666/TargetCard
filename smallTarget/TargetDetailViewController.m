@@ -38,8 +38,17 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
+    [self setStatusBarBackgroundColor:[UIColor whiteColor]];
     [self setNavigationBar];
     [self setupUI];
+}
+
+//设置状态栏颜色
+- (void)setStatusBarBackgroundColor:(UIColor *)color {
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = color;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -333,11 +342,20 @@
             [context updatedObjects];
         }
         
-        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
-        secondModel.title = self.fModel.title;
-        secondModel.keyNumber = self.fModel.keyNumber;
-        secondModel.status = @"未完成";
-        secondModel.currentDate = [NSDate date];
+        NSEntityDescription * des2 = [NSEntityDescription entityForName:@"SecondModel" inManagedObjectContext:context];
+        NSFetchRequest * request2 = [NSFetchRequest new];
+        request2.entity = des2;
+        request2.predicate = pre;
+        NSArray * array2 = [context executeFetchRequest:request2 error:NULL];
+        for (SecondModel *model in array2) {
+            model.status = @"未完成";
+            [context updatedObjects];
+        }
+//        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
+//        secondModel.title = self.fModel.title;
+//        secondModel.keyNumber = self.fModel.keyNumber;
+//        secondModel.status = @"未完成";
+//        secondModel.currentDate = [NSDate date];
         [[ZTDBManager sharedManager] saveContext];
         
         [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", self.fModel.keyNumber]];
