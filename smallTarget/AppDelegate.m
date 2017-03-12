@@ -10,6 +10,7 @@
 #import "MainTabBarViewController.h"
 #import "ZTDBManager.h"
 #import <UMSocialCore/UMSocialCore.h>
+#import "ZTGuideViewController.h"
 
 #define LO_UMENG_APPKEY @"5832ea4e82b635126500187f"
 #define wechatAppKey  @"wx3fd9c29ccfad4b5c"
@@ -36,8 +37,16 @@
     
     // 1.创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
     // 2.设置根控制器
-    self.window.rootViewController = [[MainTabBarViewController alloc] init];
+    NSUserDefaults *useDef = [NSUserDefaults standardUserDefaults];
+    if (![useDef boolForKey:@"notFirst"]) {
+        // 如果是第一次进入引导页
+        self.window.rootViewController = [[ZTGuideViewController alloc] init];
+    } else{
+        // 否则直接进入应用
+        self.window.rootViewController = [[MainTabBarViewController alloc] init];
+    }
     // 3.显示窗口
     [self.window makeKeyAndVisible];
     

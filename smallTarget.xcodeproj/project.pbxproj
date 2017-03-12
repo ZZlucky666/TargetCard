@@ -72,6 +72,7 @@
 		B9B8DA731DD211A0007871C6 /* ZTDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B8DA721DD211A0007871C6 /* ZTDBManager.m */; };
 		B9B8DB131DD8AF87007871C6 /* FristTargetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9B8DB111DD8AF87007871C6 /* FristTargetModel.xcdatamodeld */; };
 		B9CC9B991DF70CF90094DCE1 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CC9B981DF70CF90094DCE1 /* GoogleMobileAds.framework */; };
+		B9CF9AC91E74F175004B4126 /* ZTGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CF9AC81E74F175004B4126 /* ZTGuideViewController.m */; };
 		D718254BB00D7548F4477C31 /* libPods-smallTarget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B78C7E3D33F9FBC44A31F493 /* libPods-smallTarget.a */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +225,8 @@
 		B9B8DB121DD8AF87007871C6 /* FristTargetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FristTargetModel.xcdatamodel; sourceTree = "<group>"; };
 		B9CC9B961DF70C410094DCE1 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		B9CC9B981DF70CF90094DCE1 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../Downloads/GoogleMobileAdsSdkiOS-7.15-2.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
+		B9CF9AC71E74F175004B4126 /* ZTGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTGuideViewController.h; sourceTree = "<group>"; };
+		B9CF9AC81E74F175004B4126 /* ZTGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTGuideViewController.m; sourceTree = "<group>"; };
 		E3739A67984C7D00E0849CF4 /* Pods-smallTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smallTarget.release.xcconfig"; path = "Pods/Target Support Files/Pods-smallTarget/Pods-smallTarget.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -597,6 +600,8 @@
 				B98F63341D803A58002DCB02 /* MainTabBarViewController.m */,
 				B921DB3F1DC35582000CEBAC /* ZTNavigationController.h */,
 				B921DB401DC35582000CEBAC /* ZTNavigationController.m */,
+				B9CF9AC71E74F175004B4126 /* ZTGuideViewController.h */,
+				B9CF9AC81E74F175004B4126 /* ZTGuideViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -848,6 +853,7 @@
 				B921DB411DC35582000CEBAC /* ZTNavigationController.m in Sources */,
 				B98F63361D803A58002DCB02 /* MainTabBarViewController.m in Sources */,
 				B9B8DA731DD211A0007871C6 /* ZTDBManager.m in Sources */,
+				B9CF9AC91E74F175004B4126 /* ZTGuideViewController.m in Sources */,
 				B985CFBA1DCB25B500466800 /* JXMovableCellTableView.m in Sources */,
 				B980A2A51DE328770024680F /* UMShareMenuSelectionView.m in Sources */,
 				B980A2301DE2BFDF0024680F /* MyPayCenter.m in Sources */,

@@ -145,7 +145,7 @@
         rect.size = ((UIScrollView *)theView).contentSize;
     }
     
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
+    UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     [theView.layer renderInContext:context];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
@@ -154,11 +154,16 @@
 }
 
 - (void)didClickShareBtn {
+    [self setStatusBarBackgroundColor:[UIColor clearColor]];
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
+    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 107)/2, 20, 110, 27)];
+    img.image = [UIImage imageNamed:@"shuiying"];
+    [self.view addSubview:img];
     self.catImage = [self captureView:self.view];
     [view removeFromSuperview];
+    [img removeFromSuperview];
     UIView *backView = [[UIView alloc]initWithFrame:[[UIApplication sharedApplication] keyWindow].bounds];
     backView.backgroundColor = [UIColor blackColor];
     backView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -351,11 +356,6 @@
             model.status = @"未完成";
             [context updatedObjects];
         }
-//        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
-//        secondModel.title = self.fModel.title;
-//        secondModel.keyNumber = self.fModel.keyNumber;
-//        secondModel.status = @"未完成";
-//        secondModel.currentDate = [NSDate date];
         [[ZTDBManager sharedManager] saveContext];
         
         [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", self.fModel.keyNumber]];

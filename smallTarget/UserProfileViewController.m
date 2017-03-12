@@ -13,7 +13,7 @@
 #import <UMSocialCore/UMSocialCore.h>
 @import GoogleMobileAds;
 
-#define googleADId @"ca-app-pub-3311606292245331/8479584202"
+#define googleADId @"ca-app-pub-9651699566436513/1729120787"
 #define testGoogleADId @"ca-app-pub-3940256099942544/2934735716"
 #define shareText @"你曾想为父母做顿饭，却一拖再拖；你曾想给她买一束花，但忘了又忘。一个个能为生活增添美好的小目标，却常常被埋没在徒增疲惫的世俗琐事里。这里刚好有个不错的应用，提醒你什么更重要。\n下载点击itunes.apple.com/app/id1179254763"
 
@@ -39,6 +39,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self setStatusBarBackgroundColor:UIColorFromRGB(0xFAFAFA)];
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"clearAd"]) {
+        self.bannerView.hidden = YES;
+    }
 }
 
 - (void)setUpUI {
