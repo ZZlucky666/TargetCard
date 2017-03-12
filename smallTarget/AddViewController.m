@@ -533,6 +533,9 @@
             [backView addGestureRecognizer:tapGesture];
             backView.alpha = 0;
             self.backView = backView;
+            
+            [self setStatusBarBackgroundColor:[UIColor clearColor]];
+            
             [UIView animateWithDuration:0.35f animations:^{
                 backView.alpha = 0.5;
             } completion:^(BOOL finished) {
@@ -549,6 +552,9 @@
             [backView addGestureRecognizer:tapGesture];
             backView.alpha = 0;
             self.backView = backView;
+            
+            [self setStatusBarBackgroundColor:[UIColor clearColor]];
+            
             [UIView animateWithDuration:0.35f animations:^{
                 backView.alpha = 0.5;
             } completion:^(BOOL finished) {
@@ -565,6 +571,9 @@
             [backView addGestureRecognizer:tapGesture];
             backView.alpha = 0;
             self.backView = backView;
+            
+            [self setStatusBarBackgroundColor:[UIColor clearColor]];
+            
             [UIView animateWithDuration:0.35f animations:^{
                 backView.alpha = 0.5;
             } completion:^(BOOL finished) {
@@ -588,6 +597,9 @@
             [backView addGestureRecognizer:tapGesture];
             backView.alpha = 0;
             self.backView = backView;
+            
+            [self setStatusBarBackgroundColor:[UIColor clearColor]];
+            
             [UIView animateWithDuration:0.35f animations:^{
                 backView.alpha = 0.5;
             } completion:^(BOOL finished) {
@@ -611,6 +623,7 @@
         weakself.backView.alpha = 0;
     } completion:^(BOOL finished) {
         [weakself.backView removeFromSuperview];
+         [self setStatusBarBackgroundColor:UIColorFromRGB(0xFAFAFA)];
     }];
 }
 

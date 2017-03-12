@@ -384,6 +384,7 @@
             model.clickTime = [NSDate date];
             [context updatedObjects];
         }
+        [[ZTDBManager sharedManager] saveContext];
         
         [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", model.keyNumber]];
         NSDate *now = [NSDate date];
@@ -424,11 +425,6 @@
             model.status = @"未完成";
             [context updatedObjects];
         }
-//        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
-//        secondModel.title = model.title;
-//        secondModel.keyNumber = model.keyNumber;
-//        secondModel.status = @"未完成";
-//        secondModel.currentDate = [NSDate date];
         [[ZTDBManager sharedManager] saveContext];
         [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", model.keyNumber]];
     }
@@ -465,13 +461,6 @@
             model.status = @"进行中";
             [context updatedObjects];
         }
-        
-//        SecondModel *secondModel = [NSEntityDescription insertNewObjectForEntityForName:@"SecondModel" inManagedObjectContext:[ZTDBManager sharedManager].managedObjectContext];
-//        secondModel.title = model.title;
-//        secondModel.keyNumber = model.keyNumber;
-//        secondModel.finishTime = i;
-//        secondModel.status = @"进行中";
-//        secondModel.currentDate = [NSDate date];
         [[ZTDBManager sharedManager] saveContext];
         
         [self cancelLocalNotificationWithKey:[NSString stringWithFormat:@"%d", model.keyNumber]];
